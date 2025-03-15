@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Exemplos de JavaScript</title>
+</head><!--<!DOCTYPE html>: Declara o tipo de documento como HTML5, garantindo que o navegador interprete o código corretamente.
+<html>: Elemento raiz do documento HTML.
+<head>: Contém metadados sobre o documento, como o título da página (<title>).
+<body>: Contém o conteúdo visível da página.
+<h1>: Cabeçalhos de nível 1, usados para títulos principais.
+<p>: Parágrafos de texto.
+id="textoOriginal", id="textoMaiusculo", id="valorOriginal", id="valorFormatado": Atributos id únicos para cada elemento <p>, permitindo que o JavaScript os identifique e manipule.
+<button onclick="transformarEmMaiusculas()">Transformar</button>: Cria um botão que, quando clicado, executa a função JavaScript transformarEmMaiusculas().
+<button onclick="formatarMoeda()">Formatar</button>: Cria um botão que, quando clicado, executa a função JavaScript formatarMoeda().
+-->
+<body>
+
+  <h1>Transformar texto em maiúsculas</h1>
+  <p id="textoOriginal">Este é um texto de exemplo.</p>
+  <button onclick="transformarEmMaiusculas()">Transformar</button>
+  <p id="textoMaiusculo"></p>
+
+  <h1>Formatar número como moeda</h1>
+  <p id="valorOriginal">1234.56</p>
+  <button onclick="formatarMoeda()">Formatar</button>
+  <p id="valorFormatado"></p>
+
+  <script>
+    function transformarEmMaiusculas() {
+      let texto = document.getElementById("textoOriginal").textContent;
+      let textoMaiusculo = texto.toUpperCase();
+      document.getElementById("textoMaiusculo").textContent = "Texto em maiúsculas: " + textoMaiusculo;
+    }
+
+    function formatarMoeda() {
+      let valor = parseFloat(document.getElementById("valorOriginal").textContent);
+      let valorFormatado = new Intl.NumberFormat('pt-BR', {
+        style: 'currency',
+        currency: 'BRL'
+      }).format(valor);
+      document.getElementById("valorFormatado").textContent = "Valor formatado: " + valorFormatado;
+    }
+/*function transformarEmMaiusculas(): Define uma função chamada transformarEmMaiusculas.
+let texto = document.getElementById("textoOriginal").textContent;: Obtém o conteúdo de texto do elemento <p> com id="textoOriginal" e armazena na variável texto.
+let textoMaiusculo = texto.toUpperCase();: Converte o texto em maiúsculas usando o método toUpperCase() e armazena na variável textoMaiusculo.
+document.getElementById("textoMaiusculo").textContent = "Texto em maiúsculas: " + textoMaiusculo;: Atualiza o conteúdo de texto do elemento <p> com id="textoMaiusculo" para exibir o texto em maiúsculas.
+function formatarMoeda(): Define uma função chamada formatarMoeda.
+let valor = parseFloat(document.getElementById("valorOriginal").textContent);: Obtém o conteúdo de texto do elemento <p> com id="valorOriginal", converte para um número decimal usando parseFloat() e armazena na variável valor.
+let valorFormatado = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(valor);: Cria um objeto Intl.NumberFormat para formatar o número como moeda brasileira e armazena o resultado formatado na variável valorFormatado.
+document.getElementById("valorFormatado").textContent = "Valor formatado: " + valorFormatado;: Atualiza o conteúdo de texto do elemento <p> com id="valorFormatado" para exibir o valor formatado.
+Fluxo de Execução:
+
+O navegador carrega o documento HTML e exibe o conteúdo na página.
+Quando o usuário clica no botão "Transformar", a função transformarEmMaiusculas() é executada, convertendo o texto em maiúsculas e exibindo o resultado.
+Quando o usuário clica no botão "Formatar", a função formatarMoeda() é executada, formatando o número como moeda brasileira e exibindo o resultado.
+Este código demonstra como interagir com elementos HTML usando JavaScript, manipular strings e formatar números, fornecendo exemplos práticos de funcionalidades comuns em desenvolvimento web.*/
+  </script>
+
+</body>
+</html>
